@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <bean id="user" class="User">
+        <constructor-arg value="1"></constructor-arg>
+        <constructor-arg value="Vlad"></constructor-arg>
+    </bean>
+    <bean id="doctor" class="Doctors">
+        <property name="name" value="Canned Tomato"></property>
+        <property name="description" value="Canned plum tomatoes in their own juice."></property>
+        <property name="daysSinceProduced" value="1000"></property>
+        <property name="daysToExpire" value="1"></property>
+        <property name="inStock" value="2"></property>
+    </bean>
+    <bean id="userCollectin" class="CollectionDocs">
+        <property name="users">
+            <list>
+                <bean id="user1" class="User">
+                    <constructor-arg value="1"></constructor-arg>
+                    <constructor-arg value="Vlad"></constructor-arg>
+                </bean>
+                <bean id="user2" class="User">
+                    <constructor-arg value="2"></constructor-arg>
+                    <constructor-arg value="Marko"></constructor-arg>
+                </bean>
+                <bean id="user3" class="User">
+                    <constructor-arg value="3"></constructor-arg>
+                    <constructor-arg value="Kim"></constructor-arg>
+                </bean>
+            </list>
+        </property>
+    </bean>
+</beans>

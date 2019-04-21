@@ -3,18 +3,28 @@ package data;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Lectures")
+@Table(name="Lectures")
+@IdClass(AudID.class)
 public class Lecture {
     @Id
     @GeneratedValue
     @Column(name = "ID")
     private int id;
-
     private String name;
-    private Double credits;
-
+    private double credits;
+    @OneToOne (fetch = FetchType.LAZY)
+    @JoinColumn(name = "lecturer_fk", nullable = false)
+    private Lecturers lecturer;
     public int getId() {
         return id;
+    }
+
+    public Lecturers getLecturer() {
+        return lecturer;
+    }
+
+    public void setLecturer(Lecturers lecturer) {
+        this.lecturer = lecturer;
     }
 
     public void setId(int id) {
@@ -29,11 +39,12 @@ public class Lecture {
         this.name = name;
     }
 
-    public Double getCredits() {
+    public double getCredits() {
         return credits;
     }
 
-    public void setCredits(Double credits) {
+    public void setCredits(double credits) {
         this.credits = credits;
     }
+    //Getters and settings
 }

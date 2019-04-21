@@ -2,13 +2,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Battery {
-    Float wH;
-
-    Battery(Float wH) {
-        this.wH = wH;
+    Integer mAh;
+    Battery(Integer mAh){
+        this.mAh = mAh;
     }
-
-    public String batteryInfo() {
-        return "Battery capacity: " + wH;
+    public void batteryInfo(){
+        System.out.println("Battery power: "+mAh);
     }
 }
